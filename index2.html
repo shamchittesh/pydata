@@ -1,0 +1,128 @@
+<!doctype html>
+
+<html   lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PyData Mauritius</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-wrap ">
+  <div class="flex flex-col ">
+
+<row1 class="flex flex-col md:flex-row flex-wrap justify-center items-center">
+    <!---LOGO  -->
+    <div class="bg-red-100 flex justify-center items-center border-2 border-black">
+            <div class="logo pt-12 ">
+                <img src="/assets/logo.png">
+              </div>        
+    </div> 
+    <!---PYDATA  -->
+    <div class="flex flex-row justify-center flex-wrap items-center">
+        <div class="bg-yellow-100 border-2  border-black">
+            <div  class="title text-5xl font-bold px-5 effect rounded-3xl text-center items-center m-4"><span style="color:#459DB9;";>Py</span>Data Mauritius</div>
+        </div>
+    <!---DARKMODE SWITCHER  -->
+        <div class="bg-purple-100 border-2 m-4 pr-10 border-black">
+            <div class="darkmode ">
+                <input type="checkbox">
+              </div>
+            </div>
+    </div>
+</row1">
+
+
+<carousel class="mt-5 bg-teal-100 flex flex-col flex-wrap justify-center relative ">
+  
+    
+    <div 
+      class="bg-yellow-100 w-full flex flex-row flex-wrap"
+      x-data="{ activeSlide: 1, slides: [1,2,3], images: ['assets/header-1.png','assets/header-2.png','assets/header-3.png'] ,title: [
+        'Hi! We are PyData Mauritius.',
+        'This is Our Landing Page',
+        'Subscribe for local events'] 
+    ,desc: [
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+    ]}"
+     >
+      <!-- Slides -->
+      <div class="w-full flex flex-col md:flex-row flex-wrap justify-center">
+
+      <template x-for="slide in slides" :key="slide">
+        <div
+           x-show="activeSlide === slide"
+           class="md:w-1/2 min-w-min md:pl-32 flex flex-warp  bg-red-500 justify-center">
+               <img class="object-cover" x-bind:src="images[slide-1]"/>
+
+        </div>
+  
+      </template>
+      <template x-for="slide in slides" :key="slide">
+      <div
+      x-show="activeSlide === slide"
+      class="md:w-1/2 pl-4 pb-10 pt-10 md:pr-32 flex flex-col flex-warp  items-center justify-center">
+     <span class="w-auto text-center text-6xl " x-text="title[slide-1]"></span>
+     <span class="pt-6 w-auto text-center bg-green-500" x-text="desc[slide-1]"></span>
+     <div x-show="activeSlide === 1" class="bg-yellow-500 mt-4 flex justify-center w-1/2 h-auto">
+
+        <a href="https://google.com" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Go to Google</a>
+
+            </div>
+   </div>  
+</template>
+    </div>
+
+      
+
+      <!-- Prev/Next Arrows -->
+      <div class="absolute inset-0 flex flex-row flex-wrap md:items-center mt-40 md:mt-auto justify-around mx-2 ">
+            <div class=" flex w-1/2 ">
+            <button 
+                class="bg-red-100 text-teal-500 hover:text-orange-500 text-6xl font-extrabold hover:shadow-lg rounded-full w-24 h-20 flex items-start justify-center"
+                x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1"
+                x-cloak=""
+                >
+                &#8592;
+            </button>
+
+            </div>
+            <div class=" flex justify-end  w-1/2">
+            <button 
+                class="bg-blue-100 text-teal-500 hover:text-orange-500 text-6xl font-extrabold hover:shadow-lg rounded-full w-24 h-20 flex items-start justify-center"
+                x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1"
+                x-cloak=""
+                >
+                &#8594;
+            </button>
+            </div>         
+      </div>
+  
+      <!-- Buttons -->
+      <div class="absolute bottom-4 left-0 w-full flex flex-wrap items-end justify-center px-24">
+        <template x-for="slide in slides" :key="slide">
+          <button
+            class="flex-1 w-4 h-2 mt-4 mx-2 mb-0 rounded-full overflow-hidden transition-colors duration-200 ease-out hover:bg-teal-600 hover:shadow-lg"
+            :class="{ 
+                'bg-orange-600': activeSlide === slide,
+                'bg-teal-300': activeSlide !== slide 
+            }" 
+            x-on:click="activeSlide = slide"
+          ></button>
+
+        </template>
+      </div>
+    </div>  
+
+    </carousel>
+
+
+  </div>
+</body>
+</html>
