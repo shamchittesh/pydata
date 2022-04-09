@@ -1,10 +1,12 @@
 body{
     background: bisque;
+
 }
 .app-container{
     width: 70%;
     height: 80%;
     background-color: cornsilk;
+    border-radius: 10px;
 }
 
 .effect{
@@ -79,14 +81,13 @@ body{
         border-width: 8px;
         border-color: #fdebb4;
         border-radius: 10px;
-        width: 600px;
         height: auto; 
         min-width: 100px;
         margin-top: -20px;
         box-shadow:  8px 8px 6px rgb(0, 0, 0, 0.3),
                     -4px -4px 1px rgba(255, 255, 255, 0.4),
-                    inset 20px 20px 15px rgba(0, 0, 0, 0.493),
-                    inset -10px -10px 15px rgba(0, 0, 0, 0.493)
+                    inset 20px 20px 15px rgba(0, 0, 0, 0.2),
+                    inset -10px -10px 15px rgba(0, 0, 0, 0.2)
                     }
 
     .image-banner{
