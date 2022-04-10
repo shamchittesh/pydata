@@ -27,14 +27,13 @@ x-data="{ activeSlide: 1, slides: [1,2,3], images: ['assets/header-1.png','asset
 >
 <body>
 
-
-  <div class="font-[sans-serif] flex flex-wrap justify-center items-center h-screen">
+<div class="font-[sans-serif] bg-gray-300 flex flex-wrap justify-center items-center h-screen">
   <div class="w-[96%] lg:w-3/4 lg:h-[810px] md:w-[90%] rounded-xl  container-shadow my-10 px-10 py-5">
 
 <row1 class="flex flex-col md:flex-row flex-wrap justify-around items-center">
 
     <!---LOGO  -->
-            <div class="logo w-28 hover:opacity-70">
+            <div class="logo w-28 hover:opacity-70 ">
               <a href="https://pydata.org/"> <img  src="/assets/logo.png"></a>
               </div>        
     <!---PYDATA  -->
@@ -73,7 +72,7 @@ x-data="{ activeSlide: 1, slides: [1,2,3], images: ['assets/header-1.png','asset
      <span class="pt-6 w-auto text-center font-bold text-lg border-8 rounded-2xl border-transparent effect text-gray-800" x-text="desc[slide-1]"></span>
      <button x-show="activeSlide === 3" class=" flex justify-center w-full h-auto">
 
-        <a href="https://google.com" class="w-52 z-20 relative justify-center effect text-3xl bg-orange-600 hover:bg-orange-700 transition-all text-white font-bold py-2 px-4 rounded-2xl" >Subscribe</a>
+        <a href="https://google.com" class="animate-pulse w-52 z-20 relative justify-center effect text-3xl bg-orange-600 hover:bg-orange-700 transition-all text-white font-bold py-2 px-4 rounded-2xl" >Subscribe</a>
 
             </div>
           </button>  
