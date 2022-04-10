@@ -27,7 +27,7 @@ x-data="{ activeSlide: 1, slides: [1,2,3], images: ['assets/header-1.png','asset
 >
 <body>
 
-<div class="font-[sans-serif] bg-gray-300 flex flex-wrap justify-center items-center h-screen">
+<div class="font-[sans-serif] bg-gray-300 flex flex-col flex-wrap justify-center items-center h-screen">
   <div class="w-[96%] lg:w-3/4 lg:h-[810px] md:w-[90%] rounded-xl  container-shadow my-10 px-10 py-5">
 
 <row1 class="flex flex-col md:flex-row flex-wrap justify-around items-center">
@@ -82,10 +82,10 @@ x-data="{ activeSlide: 1, slides: [1,2,3], images: ['assets/header-1.png','asset
       
 
       <!-- Prev/Next Arrows -->
-      <div class="absolute inset-[-7%] cursor-pointer flex flex-row flex-wrap md:items-center mt-96 md:mt-auto justify-around mx-2 ">
+      <div class="absolute  inset-[-7%] cursor-pointer flex flex-row flex-wrap md:items-center mt-96 md:mt-auto justify-around mx-2 ">
             <div class=" flex w-1/2 ">
             <div 
-                class="bg-opacity-50 bg-white text-teal-500 hover:text-orange-500 text-6xl font-extrabold hover:shadow-lg hover:bg-opacity-100 button-shadow rounded-full w-24 h-20 flex items-start justify-center"
+                class="bg-opacity-50 backdrop-blur-[2px] bg-white text-teal-500 hover:text-orange-500 text-6xl font-extrabold hover:shadow-lg hover:bg-opacity-100 button-shadow rounded-full w-24 h-20 flex items-start justify-center"
                 x-on:click="activeSlide = activeSlide === 1 ? slides.length : activeSlide - 1"
 
                 >
@@ -95,7 +95,7 @@ x-data="{ activeSlide: 1, slides: [1,2,3], images: ['assets/header-1.png','asset
             </div>
             <div class=" flex justify-end  w-1/2">
             <div 
-                class="bg-opacity-50 bg-white text-teal-500 hover:text-orange-500 text-6xl font-extrabold hover:bg-opacity-100 hover:shadow-lg button-shadow rounded-full w-24 h-20 flex items-start justify-center"
+                class="bg-opacity-50 backdrop-blur-[2px]  bg-white text-teal-500 hover:text-orange-500 text-6xl font-extrabold hover:bg-opacity-100 hover:shadow-lg button-shadow rounded-full w-24 h-20 flex items-start justify-center"
                 x-on:click="activeSlide = activeSlide === slides.length ? 1 : activeSlide + 1"
 
                 >
