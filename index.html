@@ -14,22 +14,34 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body x-data="theme()" :class="themeClass">
+<div
+x-data="{ activeSlide: 1, slides: [1,2,3], images: ['assets/header-1.png','assets/header-2.png','assets/header-3.png'] ,title: [
+'Hi! We are PyData Mauritius.',
+'This is Our Landing Page',
+'Subscribe for local events'] 
+,desc: [
+'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+]}"
+>
+<body>
 
-  <div class="bg-gradient-to-br from-gray-200 to-gray-400 font-[sans-serif] flex flex-wrap justify-center items-center h-screen">
-  <div class="w-[96%] lg:w-3/4 lg:h-[810px] md:w-[90%] rounded-xl bg-gray-300 container-shadow bg-gradient-to-tr from-gray-200 to-gray-300 my-10 px-10 py-5">
+
+  <div class="font-[sans-serif] flex flex-wrap justify-center items-center h-screen">
+  <div class="w-[96%] lg:w-3/4 lg:h-[810px] md:w-[90%] rounded-xl  container-shadow my-10 px-10 py-5">
 
 <row1 class="flex flex-col md:flex-row flex-wrap justify-around items-center">
 
     <!---LOGO  -->
-            <div class="logo w-28 ">
-                <img src="/assets/logo.png">
+            <div class="logo w-28 hover:opacity-70">
+              <a href="https://pydata.org/"> <img  src="/assets/logo.png"></a>
               </div>        
     <!---PYDATA  -->
             <div  class="title text-3xl md:w-64 lg:w-auto md:text-5xl font-bold px-5 effect rounded-3xl text-center items-center m-4 py-4"><span style="color:#459DB9;";>Py</span>Data Mauritius</div>
     <!---DARKMODE SWITCHER  -->
         <div class="m-5 pr-15 flex justify-center">
-            <div class="darkmode -translate-x-[30px]">
+            <div class="hover:opacity-70 darkmode -translate-x-[30px]">
                 <input type="checkbox">
               </div>
     </div>
@@ -37,20 +49,8 @@
 
 
 <carousel class="mt-10 cursor-move flex flex-col flex-wrap justify-center relative ">
-  
-    
     <div 
-      class=" w-full flex flex-row flex-wrap"
-      x-data="{ activeSlide: 1, slides: [1,2,3], images: ['assets/header-1.png','assets/header-2.png','assets/header-3.png'] ,title: [
-        'Hi! We are PyData Mauritius.',
-        'This is Our Landing Page',
-        'Subscribe for local events'] 
-    ,desc: [
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-    ]}"
-     >
+      class=" w-full flex flex-row flex-wrap " >
       <!-- Slides -->
       <div class="w-full flex flex-col md:flex-row flex-wrap justify-center">
 
@@ -58,7 +58,7 @@
         <div
            x-show="activeSlide === slide"
            class="opacity-80 md:w-1/2  lg:h-[550px] flex flex-warp justify-center">
-               <img class="object-cover  border-transparent rounded-3xl effect " x-bind:src="images[slide-1]"/>
+               <img class="object-cover border-transparent rounded-3xl effect " x-bind:src="images[slide-1]"/>
 
         </div>
   
@@ -70,7 +70,7 @@
       x-show="activeSlide === slide"
       class="md:w-1/2 pl-4 pb-10 pt-10  md:pr-10 flex flex-col flex-warp gap-6 items-center justify-center">
      <span class="w-auto text-center text-5xl font-bold text-[#459DB9] border-8 rounded-2xl border-transparent effect" x-text="title[slide-1]"></span>
-     <span class="pt-6 w-auto text-center font-bold text-lg border-8 rounded-2xl border-transparent effect" x-text="desc[slide-1]"></span>
+     <span class="pt-6 w-auto text-center font-bold text-lg border-8 rounded-2xl border-transparent effect text-gray-800" x-text="desc[slide-1]"></span>
      <button x-show="activeSlide === 3" class=" flex justify-center w-full h-auto">
 
         <a href="https://google.com" class="w-52 z-20 relative justify-center effect text-3xl bg-orange-600 hover:bg-orange-700 transition-all text-white font-bold py-2 px-4 rounded-2xl" >Subscribe</a>
@@ -125,6 +125,8 @@
 
 
   </div>
- </div> 
+ </div>
+
 </body>
+</div>
 </html>

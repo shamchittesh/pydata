@@ -40,13 +40,8 @@
     content: "\f0eb";
     font-family: "FontAwesome";
     font-size: 60px;
-    background-color: black;
-    color: transparent;
+    background-color: white;
     text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
--webkit-background-clip: text;
-    -moz-background-clip: text;
-        background-clip: text;
-
     height: 80px;
     width: 80px;
     transform: translateX(-60px);
